@@ -115,5 +115,6 @@ def test_is_herm_pos_semi_def(rndstate):
 
     B = A - np.mean(A, axis=0)
     vals = np.linalg.eigvals(B @ B.conj().T)
+    print(vals >= 0.0)
     assert np.all(vals >= 0.0)
     assert is_herm_pos_semi_def(B @ B.conj().T)
