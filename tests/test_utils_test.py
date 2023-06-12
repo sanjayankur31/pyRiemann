@@ -114,4 +114,6 @@ def test_is_herm_pos_semi_def(rndstate):
     assert not is_herm_pos_semi_def(np.ones((n_channels, n_channels + 1)))
 
     B = A - np.mean(A, axis=0)
+    vals = np.linalg.eigvals(B @ B.conj().T)
+    assert np.all(vals >= 0.0)
     assert is_herm_pos_semi_def(B @ B.conj().T)
